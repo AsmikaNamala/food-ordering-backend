@@ -8,7 +8,7 @@ The Food Ordering Backend provides APIs to manage vendors, clients, food items, 
 
 ## ✨ Features
 
-- **Vendor Management** – Create, retrieve, and update vendor details.
+- **Vendor Management** – Create, retrieve, update, and delete vendor details.
 - **Client Management** – Register and manage client information.
 - **Item Management** – Manage food items, prices, and available stock.
 - **Order Management** – Create and manage customer orders.
@@ -114,7 +114,7 @@ uvicorn app.main:app --reload
 
 The application will be available at:
 
-`http://127.0.0.1:8000`
+http://127.0.0.1:8000
 
 ## 📖 API Documentation
 
@@ -122,9 +122,68 @@ FastAPI provides interactive API documentation through Swagger UI.
 
 Open:
 
-`http://127.0.0.1:8000/docs`
+http://127.0.0.1:8000/docs
 
 You can explore and test the available API endpoints directly from your browser.
+
+## 🔗 API Endpoints
+
+### 1. Vendors
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/vendors/` | Get all vendors |
+| POST | `/vendors/` | Create a vendor |
+| GET | `/vendors/{vendor_id}` | Get vendor details |
+| PUT | `/vendors/{vendor_id}` | Update vendor |
+| DELETE | `/vendors/{vendor_id}` | Delete vendor |
+
+### 2. Clients
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/clients/` | Get all clients |
+| POST | `/clients/` | Create a client |
+| GET | `/clients/{client_id}` | Get client details |
+| PUT | `/clients/{client_id}` | Update client |
+| DELETE | `/clients/{client_id}` | Delete client |
+
+### 3. Items
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/items/` | Get all items |
+| POST | `/items/` | Create an item |
+| GET | `/items/low-stock` | Get low-stock items |
+| GET | `/items/{item_id}` | Get item details |
+| PUT | `/items/{item_id}` | Update item |
+| DELETE | `/items/{item_id}` | Delete an item |
+
+### 4. Orders
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/orders/` | Get all orders |
+| POST | `/orders/` | Create an order |
+| GET | `/orders/client/{client_id}` | Get client order history |
+| GET | `/orders/{order_id}/details` | Get order details |
+| GET | `/orders/{order_id}` | Get a specific order |
+| POST | `/orders/{order_id}/payment` | Make payment |
+| POST | `/orders/{order_id}/cancel` | Cancel an order |
+
+### 5. Replenishment
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/replenishment/` | Create replenishment request |
+| POST | `/replenishment/{request_id}/review` | Review replenishment request |
+
+### 6. General
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/` | Home |
+| GET | `/health` | Health check |
 
 ## 🧪 Running Tests
 
